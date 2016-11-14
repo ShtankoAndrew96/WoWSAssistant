@@ -17,7 +17,11 @@ public class StatsPlayerActivity extends Activity implements OnInfoGetListener {
     private TextView player_name_view;
     private TextView battles_view;
     private TextView miles_view;
+    private String name;
 
+    public TextView getPlayerName(){
+        return player_name_view;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +29,7 @@ public class StatsPlayerActivity extends Activity implements OnInfoGetListener {
 
         Intent i = getIntent();
         String id = i.getStringExtra("infaId");
-        String name = i.getStringExtra("infaName");
+        name = i.getStringExtra("infaName");
 
         Log.d("ZjzaaaHZ", id);
         Log.d("ZjzaaaHZ", name);
@@ -47,6 +51,7 @@ public class StatsPlayerActivity extends Activity implements OnInfoGetListener {
 
         battles_view.setText(String.valueOf(container.getBattles()));
         miles_view.setText(String.valueOf(container.getMiles()));
+        player_name_view.setText(String.valueOf(container.getName()));
         Log.d("infaaaaa", String.valueOf(container.getBattles()));
 
     }
