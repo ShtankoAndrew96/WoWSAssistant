@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import com.noname.wowslibrary.Api;
 import com.noname.wowslibrary.OnLoginListener;
@@ -25,6 +26,9 @@ public class EntryActivity extends AppCompatActivity implements OnLoginListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entry);
         mApi=new Api(getApplicationContext());
+        Toast toast = Toast.makeText(getApplicationContext(),
+                R.string.versionName, Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     public void goToLoginActvity(View view) throws JSONException {
