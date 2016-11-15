@@ -18,7 +18,7 @@ import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity implements Runnable {
 
-    WebView webView;
+    public WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

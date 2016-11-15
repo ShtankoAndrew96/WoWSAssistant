@@ -14,6 +14,7 @@ public class StatsPlayerActivity extends Activity implements OnInfoGetListener {
 
     Api myApi;
 
+
     private TextView player_name_view;
     private TextView battles_view;
     private TextView miles_view;
@@ -43,7 +44,6 @@ public class StatsPlayerActivity extends Activity implements OnInfoGetListener {
         myApi = new Api(getApplicationContext());
         myApi.getInfoPlayer(id);
         myApi.setOnInfoGetListener(this);
-
     }
 
     @Override
@@ -52,7 +52,12 @@ public class StatsPlayerActivity extends Activity implements OnInfoGetListener {
         battles_view.setText(String.valueOf(container.getBattles()));
         miles_view.setText(String.valueOf(container.getMiles()));
         player_name_view.setText(String.valueOf(container.getName()));
+        name=String.valueOf(container.getName());
         Log.d("infaaaaa", String.valueOf(container.getBattles()));
 
+    }
+
+    public String getName(){
+        return name;
     }
 }

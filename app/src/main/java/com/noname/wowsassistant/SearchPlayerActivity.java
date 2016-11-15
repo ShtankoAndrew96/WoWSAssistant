@@ -24,6 +24,7 @@ public class SearchPlayerActivity extends Activity implements OnPlayerSearchList
     private JSONAdapter adapter;
     TextView tv;
     TextView tv2;
+    public String ret_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
