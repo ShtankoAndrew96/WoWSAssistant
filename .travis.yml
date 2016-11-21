@@ -1,6 +1,6 @@
-language: android
-android:
-  components:
+"language": android
+"android":
+  "components":
     - platform-tools
         - tools
         - build-tools-25.0.0
@@ -9,11 +9,11 @@ android:
         - sys-img-armeabi-v7a-android-24
         - extra-android-m2repository
 
-before_script:
+"before_script":
   # Create and start emulator
   - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
 
-script: - ./gradlew build connectedCheck
+"script": - ./gradlew build connectedCheck
