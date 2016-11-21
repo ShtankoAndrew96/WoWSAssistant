@@ -25,7 +25,7 @@ public class EntryActivity extends AppCompatActivity implements OnLoginListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entry);
-        mApi=new Api(getApplicationContext());
+        mApi = new Api(getApplicationContext());
         Toast toast = Toast.makeText(getApplicationContext(),
                 R.string.versionName, Toast.LENGTH_SHORT);
         toast.show();
@@ -46,9 +46,9 @@ public class EntryActivity extends AppCompatActivity implements OnLoginListener 
 
     @Override
     public void onLogin(int access_token, String nickname, int account_id, Timestamp experies_at) {
-        this.access_token=access_token;
-        this.nickname=nickname;
-        this.account_id=account_id;
-        this.expires_at=experies_at;
+        this.access_token = access_token;
+        this.nickname = nickname;
+        this.account_id = account_id;
+        this.expires_at = experies_at;
     }
 }
