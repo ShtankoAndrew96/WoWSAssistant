@@ -6,10 +6,11 @@ android:
     - platform-tools
         - tools
         - build-tools-25.0.0
+        - android-20
         - android-22
         - android-24
         - android-25
-        - sys-img-armeabi-v7a-android-22
+        - sys-img-armeabi-v7a-android-wear-20
         - extra-android-m2repository
 
 before_script:
@@ -18,5 +19,7 @@ before_script:
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
+  - ANDROID_SDKS=android-20 ANDROID_TARGET=android-20 ANDROID_ABI=android-wear/armeabi-v7a
+  
 
 script: ./gradlew build connectedCheck
