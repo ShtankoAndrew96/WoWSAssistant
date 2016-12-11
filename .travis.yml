@@ -15,7 +15,7 @@ android:
     - extra-android-m2repository
     - extra-android-support
     # Images
-    - sys-img-armeabi-v7a-android-wear-20
+    - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
 
 env:
   matrix:
@@ -24,11 +24,10 @@ env:
     - ANDROID_SDKS=android-17 ANDROID_TARGET=android-17 ANDROID_ABI=armeabi-v7a
     - ANDROID_SDKS=android-18 ANDROID_TARGET=android-18 ANDROID_ABI=armeabi-v7a
     - ANDROID_SDKS=android-19 ANDROID_TARGET=android-19 ANDROID_ABI=armeabi-v7a
-    - ANDROID_SDKS=android-20 ANDROID_TARGET=android-20 ANDROID_ABI=android-wear/armeabi-v7a
+    - ANDROID_SDKS=android-20 ANDROID_TARGET=android-20 ANDROID_ABI=armeabi-v7a
     - ANDROID_SDKS=android-21 ANDROID_TARGET=android-21 ANDROID_ABI=armeabi-v7a
     - ANDROID_SDKS=android-22 ANDROID_TARGET=android-22 ANDROID_ABI=armeabi-v7a
     - ANDROID_SDKS=android-23 ANDROID_TARGET=android-23 ANDROID_ABI=armeabi-v7a
-    
 
 
   global:
@@ -47,10 +46,8 @@ before_install:
   - chmod +x gradlew
 
 before_script:
-  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-  - emulator -avd test -no-audio -no-window &
-  - android-wait-for-emulator
-  - adb shell input keyevent 82 &
+  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+  - emulator -avd test -no-skin -no-audio -no-window &
 
 script:
   - android-wait-for-emulator
