@@ -38,5 +38,9 @@ public class StatsContainer {
     public void setName(String name) {
         this.name = name;
     }
+
+    public static String getString(StatsContainer sc){
+        return (sc.getName()+";"+sc.getBattles()+";"+sc.getMiles());
+    }
 }
 

@@ -16,8 +16,8 @@ class JSONAdapter extends BaseAdapter implements ListAdapter {
     private final Activity activity;
     private final JSONArray jsonArray;
     public JSONAdapter (Activity activity, JSONArray jsonArray) {
-        assert activity != null;
-        assert jsonArray != null;
+        //assert activity != null;
+        //assert jsonArray != null;
 
         this.jsonArray = jsonArray;
         this.activity = activity;

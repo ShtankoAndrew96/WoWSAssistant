@@ -11,6 +11,7 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.noname.wowslibrary.Api;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private String access_token;
     private String nickname;
     private int account_id;
+    private Api mApi;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Intent intent = getIntent();
         String[] parsed = getParseParams(intent);
-        if(parsed!=null) {
+        if (parsed != null) {
             status = parsed[0];
             access_token = parsed[1];
             nickname = parsed[2];

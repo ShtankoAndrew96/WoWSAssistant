@@ -24,10 +24,12 @@ public class Api implements OnInfoGetListener{
     private OnInfoGetListener mListenerGet;
     private OnLoginListener mListenerLog;
     private static String name;
+    private String application_id="53171588f86f7958d53b4b8cf6440241";
 
     public static final String SEARCH_URL = "https://api.worldofwarships.ru/wows/account/list/?application_id=53171588f86f7958d53b4b8cf6440241&search=";
     public static final String SEARCH_URL_INFO = "https://api.worldofwarships.ru/wows/account/info/?application_id=53171588f86f7958d53b4b8cf6440241&fields=statistics&account_id=";
     public static final String LOGOUT_URL = "https://api.worldoftanks.ru/wot/auth/logout/?application_id=53171588f86f7958d53b4b8cf6440241&access_token=";
+    public static final String SHIPS_URL = "https://api.worldofwarships.ru/wows/encyclopedia/ships/?application_id=53171588f86f7958d53b4b8cf6440241";
     public Api(Context context) {
         mQueue = Volley.newRequestQueue(context);
     }
@@ -83,6 +85,40 @@ public class Api implements OnInfoGetListener{
         mQueue.add(getRequest);
     }
 
+    public ArrayList<Ship> getShips(){
+        final ArrayList<Ship> res=new ArrayList<>();
+        JsonObjectRequest getInfo = new JsonObjectRequest(Request.Method.GET, SHIPS_URL, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        StatsContainer container = new StatsContainer();
+                        try {
+                            JSONArray infoArr = response.getJSONArray("data");
+                            for(int i=0; i<infoArr.length(); i++){
+                                Ship sh = new Ship();
+                                JSONObject infoCur = infoArr.getJSONObject(i);
+                                sh.setName(infoCur.getString("name"));
+                                sh.setNation(infoCur.getString("nation"));
+                                sh.setDescription(infoCur.getString("description"));
+                                sh.setType(infoCur.getString("type"));
+                                sh.setShip_id(infoCur.getInt("ship_id"));
+                                res.add(sh);
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Log.d("Error.Response", volleyError.getMessage());
+            }
+        });
+        mQueue.add(getInfo);
+        return res;
+    }
+
     public StatsContainer getInfoPlayer(String ID){
         final String[] nick = {null};
         final String IDs = ID;
@@ -117,6 +153,18 @@ public class Api implements OnInfoGetListener{
         });
         mQueue.add(getInfo);
         return null;
+    }
+
+    public void setApiKey(String key){
+        application_id=key;
+    }
+
+    public String getApiKey(){
+        return application_id;
+    }
+
+    public static String getShipsUrl(Api a){
+        return "https://api.worldofwarships.ru/wows/encyclopedia/ships/?application_id="+a.getApiKey();
     }
 
     public void setOnPlayerChangeListener(OnPlayerSearchListener listener){
