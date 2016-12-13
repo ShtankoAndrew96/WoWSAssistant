@@ -12,11 +12,10 @@ package com.noname.wowsassistant;
         import static com.noname.wowslibrary.Api.getShipsUrl;
         import static com.noname.wowslibrary.Ship.getFullName;
         import static com.noname.wowslibrary.StatsContainer.getString;
+        import static junit.framework.Assert.assertFalse;
+        import static org.junit.Assert.assertEquals;
         import static org.mockito.Mockito.mock;
         import static org.mockito.Mockito.when;
-        import static org.testng.Assert.assertEquals;
-        import static org.testng.Assert.assertFalse;
-
 /**
  * Created by Andrew
  */
@@ -49,6 +48,9 @@ public class MainActivityTest {
     public void validFileNameFalse(){
         assertFalse(checkForValidImageName("ggg.gdf"));
     }
+
+
+
     @Test
     public void validStateEquals(){
         StatsContainer sc = mock(StatsContainer.class);
