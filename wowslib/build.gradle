@@ -16,7 +16,7 @@ def getVersionName = { ->
 }
 
 android {
-    compileSdkVersion 'Google Inc.:Google APIs:24'
+    compileSdkVersion 25
     buildToolsVersion '25.0.0'
 
     defaultConfig {
