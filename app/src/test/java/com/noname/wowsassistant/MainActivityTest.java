@@ -1,21 +1,21 @@
 package com.noname.wowsassistant;
 
-import android.content.Intent;
+        import android.content.Intent;
 
-import com.noname.wowslibrary.Api;
-import com.noname.wowslibrary.Ship;
-import com.noname.wowslibrary.StatsContainer;
+        import com.noname.wowslibrary.Api;
+        import com.noname.wowslibrary.Ship;
+        import com.noname.wowslibrary.StatsContainer;
 
-import org.junit.Test;
+        import org.junit.Test;
 
-import static com.noname.wowsassistant.helper.FileHelper.checkForValidImageName;
-import static com.noname.wowslibrary.Api.getShipsUrl;
-import static com.noname.wowslibrary.Ship.getFullName;
-import static com.noname.wowslibrary.StatsContainer.getString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
+        import static com.noname.wowsassistant.helper.FileHelper.checkForValidImageName;
+        import static com.noname.wowslibrary.Api.getShipsUrl;
+        import static com.noname.wowslibrary.Ship.getFullName;
+        import static com.noname.wowslibrary.StatsContainer.getString;
+        import static org.mockito.Mockito.mock;
+        import static org.mockito.Mockito.when;
+        import static org.testng.Assert.assertEquals;
+        import static org.testng.Assert.assertFalse;
 
 /**
  * Created by Andrew
