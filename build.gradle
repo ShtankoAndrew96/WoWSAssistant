@@ -12,6 +12,12 @@ buildscript {
     }
 }
 
+apply plugin: 'checkstyle'
+    checkstyle{
+        configFile rootProject.file("checkstyle.xml")
+        showViolations true
+    }
+
 allprojects {
     repositories {
         jcenter()
