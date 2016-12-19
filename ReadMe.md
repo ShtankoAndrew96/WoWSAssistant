@@ -8,6 +8,8 @@ To start the project need the latest version of Android Studio.
 5.In the end, we run the project from the Studio and begin to interact with the program.
 
 Manual (eng)
-To start the project in Docker
+To start the project in docker-android
 
-1.
+Android Docker image, based on the Bitrise Base Docker image, and extends it with pre-installed Android tools/setup.
+
+This docker image is pre-cached on the related bitrise.io Virtual Machines.
