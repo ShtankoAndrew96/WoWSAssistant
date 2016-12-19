@@ -16,3 +16,5 @@ In image was organized all depends needed for the project.
 To start a container image must enter the command:
     docker run -t -v $(pwd)/project ashtanko/wowsassistant:latest ./gradlew clean assembleRelease
 In container project will built and .apk of project will generated.
+
+Docker was run on OS Ubuntu 16.04 LTS
