@@ -97,7 +97,7 @@ public class Api {
                                 System.out.println(String.valueOf(Calendar.getInstance().getTime()));
                                 count++;
                                 try {
-                                    sleep(count * 10000);
+                                    sleep((int)(Math.exp(count) * 1000));
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
@@ -165,7 +165,7 @@ public class Api {
                                 System.out.println(String.valueOf(Calendar.getInstance().getTime()));
                                 count++;
                                 try {
-                                    sleep(count * 10000);
+                                    sleep((int)(Math.exp(count) * 10000));
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
