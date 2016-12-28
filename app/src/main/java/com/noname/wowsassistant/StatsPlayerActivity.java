@@ -10,6 +10,8 @@ import com.noname.wowslibrary.Api;
 import com.noname.wowslibrary.OnInfoGetListener;
 import com.noname.wowslibrary.StatsContainer;
 
+import java.util.HashMap;
+
 public class StatsPlayerActivity extends Activity implements OnInfoGetListener {
 
     Api myApi;
@@ -51,11 +53,16 @@ public class StatsPlayerActivity extends Activity implements OnInfoGetListener {
 
         battles_view.setText(String.valueOf(container.getBattles()));
         miles_view.setText(String.valueOf(container.getMiles()));
-        player_name_view.setText(String.valueOf(container.getName()));
-        name=String.valueOf(container.getName());
+        player_name_view.setText(name);
         Log.d("infaaaaa", String.valueOf(container.getBattles()));
 
     }
+
+    @Override
+    public void onGetAchiv(HashMap<String, Integer> list, String[] names) {
+
+    }
+
 
     public String getName(){
         return name;

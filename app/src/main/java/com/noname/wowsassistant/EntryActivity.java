@@ -4,17 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.noname.wowslibrary.Api;
 import com.noname.wowslibrary.OnLoginListener;
-import com.noname.wowslibrary.Ship;
 
 import org.json.JSONException;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 
 public class EntryActivity extends AppCompatActivity implements OnLoginListener {
 
@@ -53,11 +50,5 @@ public class EntryActivity extends AppCompatActivity implements OnLoginListener 
         this.nickname = nickname;
         this.account_id = account_id;
         this.expires_at = experies_at;
-    }
-
-    public void ShipSize(View view) {
-        ArrayList<Ship> ships=mApi.getShips();
-        TextView tv = (TextView) findViewById(R.id.ShipSize);
-        tv.setText(String.valueOf(ships.size()));
     }
 }

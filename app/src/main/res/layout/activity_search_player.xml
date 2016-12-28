@@ -20,6 +20,22 @@
         android:layout_gravity="center_horizontal"
         android:onClick="search"
         android:textStyle="bold|italic" />
+    <Button
+        android:layout_width="142dp"
+        android:layout_height="wrap_content"
+        android:text="confuse"
+        android:id="@+id/conBtn"
+        android:layout_gravity="center_horizontal"
+        android:onClick="confuse"
+        android:textStyle="bold|italic" />
+    <Button
+        android:layout_width="142dp"
+        android:layout_height="wrap_content"
+        android:text="restore"
+        android:id="@+id/rstBtn"
+        android:layout_gravity="center_horizontal"
+        android:onClick="restore"
+        android:textStyle="bold|italic" />
 
     <ListView
         android:layout_width="match_parent"

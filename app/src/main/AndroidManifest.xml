@@ -38,7 +38,11 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/authentication" />
-        <activity android:name=".CabinetActivity"></activity>
+        <activity android:name=".CabinetActivity" />
+        <activity android:name=".ShipsActivity" />
+        <activity android:name=".ShipStatActivity" />
+        <activity android:name=".SearchComparePlayerActivity" />
+        <activity android:name=".CompareActivity"></activity>
     </application>
 
 </manifest>

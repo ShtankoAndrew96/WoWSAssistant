@@ -40,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
             account_id = Integer.valueOf(parsed[3]);
             TextView textView = (TextView) findViewById(R.id.nicknameText);
             textView.setText(nickname);
-            // ATTENTION: This was auto-generated to implement the App Indexing API.
-            // See https://g.co/AppIndexing/AndroidStudio for more information.
-            client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
         }
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     public static String[] getParseParams(Intent intent){
@@ -78,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void viewEncyclopedia(View view) {
+        Intent intent = new Intent(this,ShipsActivity.class);
+        startActivity(intent);
     }
 
     public Action getIndexApiAction() {

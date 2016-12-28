@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_compare"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.noname.wowsassistant.CompareActivity">
+
+    <TextView
+        android:text="@string/me_id"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/compare_player"
+        android:id="@+id/me"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/player_battles"
+        android:layout_toEndOf="@+id/player_battles" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:id="@+id/compare_player"
+        android:layout_alignParentTop="true"
+        android:layout_width="175dp"
+        android:layout_toRightOf="@+id/battles_view"
+        android:layout_toLeftOf="@+id/me"
+        android:layout_toStartOf="@+id/me" />
+
+    <TextView
+        android:text="@string/battles"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/compare_player"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/battles_view" />
+
+    <TextView
+        android:text="@string/miles"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/battles_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/miles_view" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/miles_view"
+        android:layout_toRightOf="@+id/battles_view"
+        android:layout_toEndOf="@+id/battles_view"
+        android:id="@+id/player_miles"
+        android:layout_width="130dp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/c_table_id"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:id="@+id/me_miles"
+        android:layout_width="130dp"
+        android:layout_below="@+id/me_battles"
+        android:layout_toRightOf="@+id/player_miles"
+        android:layout_toEndOf="@+id/player_miles" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:id="@+id/player_battles"
+        android:layout_width="130dp"
+        android:layout_alignBaseline="@+id/battles_view"
+        android:layout_alignBottom="@+id/battles_view"
+        android:layout_toRightOf="@+id/battles_view"
+        android:layout_toEndOf="@+id/battles_view" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:id="@+id/me_battles"
+        android:layout_width="130dp"
+        android:layout_alignBaseline="@+id/player_battles"
+        android:layout_alignBottom="@+id/player_battles"
+        android:layout_toRightOf="@+id/player_miles"
+        android:layout_toEndOf="@+id/player_miles" />
+
+</RelativeLayout>

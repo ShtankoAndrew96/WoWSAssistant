@@ -1,10 +1,9 @@
 package com.noname.wowsassistant;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -16,31 +15,32 @@ import com.noname.wowslibrary.OnPlayerSearchListener;
 
 import org.json.JSONArray;
 
-public class SearchPlayerActivity extends Activity implements OnPlayerSearchListener{
-
-    private EditText mEditText;
-    private ListView mListView;
+public class SearchComparePlayerActivity extends AppCompatActivity implements OnPlayerSearchListener {
+    private ListView view;
+    private EditText name;
     private Api mApi;
     private JSONAdapter adapter;
-    TextView tv;
-    TextView tv2;
-    public String ret_name;
-
+    private TextView tv;
+    private TextView tv2;
+    private int battle;
+    private int miles;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_search_player);
+        setContentView(R.layout.activity_search_compare_player);
 
+        Intent intent = getIntent();
+        battle=intent.getIntExtra("battles",0);
+        miles = intent.getIntExtra("miles",0);
 
-        mEditText = (EditText) findViewById(R.id.nameEdit);
-        mListView = (ListView) findViewById(R.id.nameList);
+        name = (EditText) findViewById(R.id.name_to_search);
+        view = (ListView) findViewById(R.id.players_list);
 
         mApi = new Api(getApplicationContext());
         mApi.setOnPlayerChangeListener(this);
 
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -50,9 +50,11 @@ public class SearchPlayerActivity extends Activity implements OnPlayerSearchList
                 String id_number = tv.getText().toString();
                 String name_player = tv2.getText().toString();
 
-                Intent intent = new Intent(SearchPlayerActivity.this, StatsPlayerActivity.class);
+                Intent intent = new Intent(SearchComparePlayerActivity.this, CompareActivity.class);
                 intent.putExtra("infaId", id_number);
                 intent.putExtra("infaName", name_player);
+                intent.putExtra("battle",battle);
+                intent.putExtra("miles",miles);
 
                 Toast toast = Toast.makeText(getApplicationContext(),
                         id_number  , Toast.LENGTH_SHORT);
@@ -64,27 +66,15 @@ public class SearchPlayerActivity extends Activity implements OnPlayerSearchList
 
             }
         });
-
-
-
-
     }
-    public void search (View view){
-        mApi.searchPlayer(mEditText.getText().toString(),this);
+
+    public void search(View view) {
+        mApi.searchPlayer(name.getText().toString(),this);
     }
 
     @Override
-    public void onPlayerSearch(JSONArray jarray){
-        adapter = new JSONAdapter(SearchPlayerActivity.this, jarray);
-        mListView.setAdapter(adapter);
-    }
-
-
-    public void confuse(View view) {
-        Api.setURL();
-    }
-
-    public void restore(View view) {
-        Api.returnURL();
+    public void onPlayerSearch(JSONArray jsonArray) {
+        adapter = new JSONAdapter(this, jsonArray);
+        view.setAdapter(adapter);
     }
 }

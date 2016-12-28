@@ -10,15 +10,145 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.noname.wowsassistant.CabinetActivity">
 
+    <TextView
+        android:text="@string/freexp_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_id"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/free_xp_view" />
+
+    <TextView
+        android:text="@string/credites_view_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/free_xp_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="13dp"
+        android:id="@+id/credits_view" />
+
+    <TextView
+        android:text="@string/gold_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/credits_view"
+        android:layout_alignRight="@+id/credits_view"
+        android:layout_alignEnd="@+id/credits_view"
+        android:layout_marginTop="15dp"
+        android:id="@+id/goldview_id"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Leveling points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:id="@+id/pointsview_id"
+        android:layout_below="@+id/tierview_id"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/credits_view"
+        android:layout_alignLeft="@+id/free_xp_id"
+        android:layout_alignStart="@+id/free_xp_id"
+        android:id="@+id/credits_id" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/goldview_id"
+        android:layout_toRightOf="@+id/tierview_id"
+        android:layout_toEndOf="@+id/tierview_id"
+        android:id="@+id/gold_id" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/pointsview_id"
+        android:layout_toRightOf="@+id/gold_id"
+        android:layout_toEndOf="@+id/gold_id"
+        android:id="@+id/points_id" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/free_xp_id"
+        android:layout_alignBaseline="@+id/free_xp_view"
+        android:layout_alignBottom="@+id/free_xp_view"
+        android:layout_alignLeft="@+id/gold_id"
+        android:layout_alignStart="@+id/gold_id" />
+
+    <TextView
+        android:text="Leveling tier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/tierview_id"
+        android:layout_below="@+id/goldview_id"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tier_id"
+        android:layout_above="@+id/pointsview_id"
+        android:layout_toRightOf="@+id/pointsview_id"
+        android:layout_toEndOf="@+id/pointsview_id" />
+
+    <Button
+        android:text="@string/show_ach_val"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/show_ach"
+        android:onClick="showAch"
+        android:layout_above="@+id/logout_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_below="@+id/pointsview_id"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/ach_list" />
+
     <Button
         android:text="@string/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/logout_button"
+        android:onClick="logout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name_id"
+        android:textAlignment="center"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="logout" />
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="@string/search_to_compare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/show_ach"
+        android:id="@+id/search_to_compare"
+        android:layout_toLeftOf="@+id/logout_button"
+        android:layout_toStartOf="@+id/logout_button"
+        android:onClick="searchPlayer" />
+
 </RelativeLayout>

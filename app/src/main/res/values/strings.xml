@@ -41,5 +41,14 @@
     <string name="noentry">no entry</string>
     <string name="cabinet">Cabinet</string>
     <string name="logout">Logout</string>
+    <string name="freexp_view">Free XP:</string>
+    <string name="credites_view_id">Credits</string>
+    <string name="gold_view">Gold</string>
+    <string name="created_view">Created at</string>
+    <string name="last_bat_time_view">Last battle time</string>
+    <string name="show_ach_val">Show achievements</string>
+    <string name="search_to_compare">Search to compare</string>
+    <string name="ser">Search</string>
+    <string name="me_id">Me</string>
 
 </resources>
